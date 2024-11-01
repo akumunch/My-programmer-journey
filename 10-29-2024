@@ -1,0 +1,53 @@
+What i did on my first day of productive work (i'm on my journey towards achieving deep work)? Here you go: - 
+So, i'm following a course called [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/). On 29th of october 2024, i was doing the 'day 4' of the course. 
+The end goal of the day (given by course) was to create a rock, paper and scissors game using random module and lists in python. Being fairly well versed in lists, i decided to deep dive into **random module**.
+I started reading the functions of randomn module posted in their [website](https://docs.python.org/3/library/random.html#random.getstate). 
+The functions include: -
+1) random.randbytes(n) - where i can use this to generate a number of 'n' bytes (after doing 
+random_bytes = random.randbytes(2)
+number = int.from_bytes(random_bytes, "big")  # or "little"
+). If i give value of n as 2, the range of nos i can have are [0,2^16-2^0] #1byte=8bits. This interested me. 
+
+2) random.getrandbits(k)- where i can generate any number that has a randomn number of bits within value 'k'. For example, if i give k=8, my range of nos will be [0,255].  
+
+3) random.choice(seq)- where i can give a sequence as input and get any one random element out of it. 
+
+4) random.choices(population,cum_weights=cum_weights,k=k) - To get a list which is derived from population with k elements in it. Using cum_weights instead of just weights is more effiicent because anyways 
+python does the cumulation part in the background if 'weights' is used. It is more efficicent to use cum_weights instead. 
+Suppose i have a 
+population = ['apple', 'banana', 'cherry']
+if i have the calculated cum_weights list as [10,15,45]. That means the random module genereates a random integer in the range 0-45 (including both) and if that number falls in: - 
+[0, 10) selects apple.
+[10, 15) selects banana.
+[15, 45) selects cherry. 
+
+5) random.shuffle(seq)- it returns None. So it is used like list.pop() (sorta). It can be used like: - 
+lst= ['apple','watermelon','papaya']
+random.shuffle(lst)
+print(lst)
+Here, i will get a list with elements shuffled. The o/p can be ['papaya', 'apple', 'watermelon'] or ['watermelon', 'apple', 'papaya'] with 6 possible outputs. 
+
+6) random.sample(population,k=k,count=[a,b,c,...]) - where i can use this to get a list of k elements with each element from population having a count a,b,c,... respectively. 
+
+7) random.binomialvariate(n=n,p=p) - This uses the concept of binomial distribution. Suppose i have a biased coin which return head with a biased probability of 65% (p=0.65). I am tossing the coin 20 times. 
+Now, i want to know the amount of times i got heads, which can be random. The count could range from 0 to 20, with the higher count having more probability (since p>0.5). 
+This really interested me because i had a bit of interest on binomial distribution in 12th grade when we were studying probability (for jee). I'm happy now that i can actually observe and learn about the integration of 
+statistics and probability in python. Not that i'm great in either, it's just cool. 
+
+8) random.random() - gives a random floating point value in the range 0<=x<1. Suppose i want to generate a floating point in the range [5,10), i can use 5+(10-5)*(random.random()). 
+
+9) random.uniform(a,b) - even using this, i can get float values in range (a,b), but it is not possible to determine whether b is included in the range or not. If i really want to know that 'b' is included or not, using random.random() is better. 
+
+10) random.triangular(low,high,mode) - where the value of output will be between low and high (including), but biased towards the mode. 
+
+11) random.betavariate(alpha,beta) - in this, suppose alpha>beta then the output will be biased towards 1, and otherwise 0. 
+Suppose i want nos from 5-10 which are floats but i want them more biased towards 5, 
+i will use a+(b-a)*(random.betavariable(aplha, beta)) where beta is greater than alpha (depending on how much bias i need). 
+
+12) random.expovariate(lambd)- suppose i'm studying a chemical reaction with an average reaction time of 7 minutes. This value has been brought after performing the same experiment a number of times in specifc/varying 
+conditions. Now, i want a random time in which the reaction can take place, without the bias of my previous attempts at this experiment. That's where random.expovariate() comes at. 
+The parameter will be lamd=1/(mean time) the reaction took. The output can literally be anywhere between 0.00000000001(just a random value, might be overexaggerated)-7 minutes, with the porbability of the o/p being closer to 7 larger. 
+
+13) random.gammavariate(alpha,beta) - 
+
+
