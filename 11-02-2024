@@ -1,0 +1,11 @@
+I created a random password generator today. 
+The code of it - [random password generator](https://drive.google.com/file/d/1SRpO5zjkbVCN4xkoMyz9hFITt9_QBuXe/view?usp=drive_link). 
+example of a passcode generated- 'q54R3BMzBTM1B*qR$qT1#4qq'.
+The security of it is clearly visible. There are various layers to this code. 
+One- The length of the passcode can be anywhere between 4-26. 
+Two- The sequence and length of each 'type' (symbols,numbers and alphabets) is completely random. 
+Three- Internally, the lists used are shuffled and elements chosen randomly at many occurences, increasing the randomness of the passcode. 
+I'd say there are only two predictable aspects to this- The first layer to the code and the **type** of characters used. 
+
+Lot of thought put into this, loved it!
+Signing off for today!
